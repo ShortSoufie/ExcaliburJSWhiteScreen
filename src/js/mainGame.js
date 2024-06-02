@@ -28,12 +28,13 @@ export class MainScene extends Scene {
         camera.strategy.lockToActor(player);
       
         // Adjust the camera's zoom to achieve a viewport size of 256x256
-        const targetViewportWidth = 256;
-        const zoomLevel = this.drawWidth / targetViewportWidth; // Since the game size is 1024x1024
-        camera.zoom = zoomLevel;
+        // const targetViewportWidth = 256;
+        camera.zoom = 4;
+        // const zoomLevel = this.drawWidth / targetViewportWidth; // Since the game size is 1024x1024
+        // camera.zoom = zoomLevel;
       
         // Disable image smoothing on the canvas
-        const ctx = this.canvas.getContext('2d');
+        // const ctx = this.canvas.getContext('2d');
     }
 
     onActivate() {

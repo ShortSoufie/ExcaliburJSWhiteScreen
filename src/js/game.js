@@ -15,37 +15,40 @@ export class Game extends Engine {
             antialiasing: false
         });
 
+        const introScene = new IntroScene(this);
+        this.add('intro', introScene);
+
+        const mainScene = new MainScene(this); // Instantiate MainScene
+        this.add('main', mainScene);
+
+        // Create and set EndScene
+        const endScene = new EndScene(this); // Instantiate EndScene
+        this.add('end', endScene);
+
         // Load resources
         this.start(ResourceLoader).then(() => {
             // Set initial scene to IntroScene
-            this.goToScene('intro');
+            this.gotoMyScene('intro');
         });
-1```
-        this.add(Player)`
     } 
 
     gotoMyScene(sceneName) {
         switch (sceneName) {
             case 'intro':
-                // Create and set IntroScene as the initial scene
-                const introScene = new IntroScene(this);
-                this.add('introScene', sceneObject);
+                this.goToScene(sceneName);
                 break;
             case 'main':
-                // Create and set MainScene
-                const mainScene = new MainScene(this); // Instantiate MainScene
-                this.add('mainScene', sceneObject);
+                this.goToScene(sceneName);
                 break;
             case 'end':
-                // Create and set EndScene
-                const endScene = new EndScene(this); // Instantiate EndScene
-                this.add('endScene', sceneObject);
+                this.goToScene(sceneName);
                 break;
             // Add cases for other scenes as needed
             default:
                 console.error('Invalid scene name');
         }
-
-        this.goToScene(sceneName);
     }
 }    
+
+// Need to build an engine to start
+const game = new Game();
