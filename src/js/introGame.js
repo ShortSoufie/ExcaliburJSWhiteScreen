@@ -14,7 +14,7 @@ export class IntroScene extends Scene {
             width: this.engine.drawWidth,
             height: this.engine.drawHeight
         });
-        backgroundImage.addDrawing(Resources.menuScreen);
+        backgroundImage.graphics.add(Resources.menuScreen.toSprite());
         this.add(backgroundImage);
 
         // Add text options
@@ -24,6 +24,9 @@ export class IntroScene extends Scene {
             fontSize: 36,
             textAlign: TextAlign.Center,
             pos: new Vector(this.engine.drawWidth / 2, this.engine.drawHeight / 2 - 50)
+        });
+        startLabel.on('pointerdown', () => {
+            this.engine.goToScene('main');
         });
         this.add(startLabel);
 
